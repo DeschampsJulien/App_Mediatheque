@@ -8,39 +8,28 @@
     <title>Liste Medias</title>
 </head>
 <body class="m-5">
+    <h1 class="m-3">App_Bibliothecaire</h1>
+    <h2 class="m-3">Liste Media</h2>
 
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link active" href="{% url 'mediatheque-ajoutbook' %}">Ajouter un livre</a>
-        </li>
-        <li class="nav-item dropdown">
-            <a class="nav-link" href="#" role="button" aria-expanded="false">Dropdown</a>
+            <a class="nav-link active" href="{% url 'ajoutbook' %}">Ajouter un Livre</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+            <a class="nav-link active" href="{% url 'ajoutdvd' %}" role="button" aria-expanded="false">Ajouter un Dvd</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            <a class="nav-link active" href="{% url 'ajoutcd' %}">Ajouter un Cd</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'ajoutboardgame' %}" >Ajouter un Jeu de plateau</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active bg-primary" href="{% url 'home' %}">Accueil</a>
+        </li>    
     </ul>
 
-    <h2 class="m-3">Livres</h2>
-
-    <!-- <tbody>
-        {% for book in books %}
-        <tr>
-            <td>{{book.title}}</td>
-            <td>{{book.author}}</td>
-            <td>
-                {% if book.available %}
-                <p class="card-text">Disponible</p>
-                {% else %}
-                <p class="card-text">Réserver</p>
-                {% endif %}
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody> -->
+    <h3 class="m-3">Livres</h3>
 
     <ol class="list-group list-group-numbered">
         {% for book in books %}
@@ -58,7 +47,7 @@
         {% endfor %}
     </ol>
 
-    <h2 class="m-3">Dvd</h2>
+    <h3 class="m-3">Dvd</h3>
 
     <ol class="list-group list-group-numbered">
         {% for dvd in dvds %}
@@ -76,7 +65,7 @@
         {% endfor %}
     </ol>
 
-    <h2 class="m-3">Cd</h2>
+    <h3 class="m-3">Cd</h3>
 
     <ol class="list-group list-group-numbered">
         {% for cd in cds %}
@@ -94,7 +83,7 @@
         {% endfor %}
     </ol>
 
-    <h2 class="m-3">Jeux de plateau</h2>
+    <h3 class="m-3">Jeux de plateau</h3>
 
     <ol class="list-group list-group-numbered">
         {% for boardgame in boardgames %}
