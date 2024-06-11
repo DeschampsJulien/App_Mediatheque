@@ -1,13 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--BOOTSTRAP CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <title>Liste Medias</title>
 </head>
-<body>
-    <h2>Livres</h2>
-    <tbody>
+<body class="m-5">
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" href="{% url 'mediatheque-ajoutbook' %}">Ajouter un livre</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link" href="#" role="button" aria-expanded="false">Dropdown</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+    </ul>
+
+    <h2 class="m-3">Livres</h2>
+
+    <!-- <tbody>
         {% for book in books %}
         <tr>
             <td>{{book.title}}</td>
@@ -21,54 +40,79 @@
             </td>
         </tr>
         {% endfor %}
-    </tbody>
-    <h2>Dvd</h2>
-    <tbody>
+    </tbody> -->
+
+    <ol class="list-group list-group-numbered">
+        {% for book in books %}
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Titre : {{ book.title }}</div>
+                Auteur : {{ book.author }}
+            </div>
+            {% if book.available %}
+            <span class="badge text-bg-primary rounded-pill">Disponible à la location</span>
+            {% else %}
+            <span class="badge text-bg-primary rounded-pill">Réserver</span>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ol>
+
+    <h2 class="m-3">Dvd</h2>
+
+    <ol class="list-group list-group-numbered">
         {% for dvd in dvds %}
-        <tr>
-            <td>{{dvd.title}}</td>
-            <td>{{dvd.realizator}}</td>
-            <td>
-                {% if dvd.available %}
-                <p class="card-text">Disponible</p>
-                {% else %}
-                <p class="card-text">Réserver</p>
-                {% endif %}
-            </td>
-        </tr>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Titre : {{ dvd.title }}</div>
+                Réalisateur : {{ dvd.realizator }}
+            </div>
+            {% if dvd.available %}
+            <span class="badge text-bg-primary rounded-pill">Disponible à la location</span>
+            {% else %}
+            <span class="badge text-bg-primary rounded-pill">Réserver</span>
+            {% endif %}
+        </li>
         {% endfor %}
-    </tbody>
-    <h2>Cd</h2>
-    <tbody>
+    </ol>
+
+    <h2 class="m-3">Cd</h2>
+
+    <ol class="list-group list-group-numbered">
         {% for cd in cds %}
-        <tr>
-            <td>{{cd.title}}</td>
-            <td>{{cd.artist}}</td>
-            <td>
-                {% if cd.available %}
-                <p class="card-text">Disponible</p>
-                {% else %}
-                <p class="card-text">Réserver</p>
-                {% endif %}
-            </td>
-        </tr>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Titre : {{ cd.title }}</div>
+                Artiste : {{ cd.artist }}
+            </div>
+            {% if cd.available %}
+            <span class="badge text-bg-primary rounded-pill">Disponible à la location</span>
+            {% else %}
+            <span class="badge text-bg-primary rounded-pill">Réserver</span>
+            {% endif %}
+        </li>
         {% endfor %}
-    </tbody>
-    <h2>Jeux de plateau</h2>
-    <tbody>
+    </ol>
+
+    <h2 class="m-3">Jeux de plateau</h2>
+
+    <ol class="list-group list-group-numbered">
         {% for boardgame in boardgames %}
-        <tr>
-            <td>{{boardgame.name}}</td>
-            <td>{{boardgame.creator}}</td>
-            <td>
-                {% if boardgame.available %}
-                <p class="card-text">Disponible</p>
-                {% else %}
-                <p class="card-text">Réserver</p>
-                {% endif %}
-            </td>
-        </tr>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Titre : {{ boardgame.name }}</div>
+                Créateur : {{ boardgame.creator }}
+            </div>
+            {% if boardgame.available %}
+            <span class="badge text-bg-primary rounded-pill">Disponibe sur place</span>
+            {% else %}
+            <span class="badge text-bg-primary rounded-pill">Non disponible</span>
+            {% endif %}
+        </li>
         {% endfor %}
-    </tbody>
+    </ol>
+
+    <!--BOOTSTRAP JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
