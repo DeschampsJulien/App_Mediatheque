@@ -9,10 +9,19 @@
 </head>
 
 <body class="m-5">
-    <h1>App_Bibliothecaire</h1>
-    <h2>Liste Membres</h2>
+    <h1 class="m-3">App_Bibliothecaire</h1>
+    <h2 class="m-3">Liste Membres</h2>
 
-    <ul class="list-group">
+    <ul class="nav nav-tabs m-3">
+        <li class="nav-item">
+            <a class="nav-link active bg-info" href="{% url 'home' %}">Accueil</a>
+        </li> 
+        <li class="nav-item">
+            <a class="nav-link active bg-light" href="{% url 'ajoutmember' %}">Ajouter un Membre</a>
+        </li>
+    </ul>
+
+    <ul class="list-group m-3">
         {% for member in members %}
         <li class="list-group-item"> Prénom : {{ member.first_name }} || Nom : {{ member.last_name }} || Email : {{ member.email }}
         {% endfor %}

@@ -5,13 +5,13 @@ from bibliothecaire.forms import BookForm, DvdForm, CdForm, BoardGameForm
 
 
 # AFFICHAGE DE LA LISTE DES MEDIAS APP_BIBLIOTHECAIRE
-def list_medias(request):
+def list_medias_bibliothecaire(request):
     books = Book.objects.all()
     dvds = Dvd.objects.all()
     cds = Cd.objects.all()
     boardgames = BoardGame.objects.all()
 
-    return render(request, "bibliothecaire/list_medias.html", {
+    return render(request, "bibliothecaire/list_medias_bibliothecaire.html", {
         'books': books,
         'dvds': dvds,
         'cds' : cds,
@@ -20,18 +20,18 @@ def list_medias(request):
 
 
 # AFFICHAGE DE LA LISTE DES MEDIAS APP_MEMBER
-# def list_medias(request):
-#     books = Book.objects.all()
-#     dvds = Dvd.objects.all()
-#     cds = Cd.objects.all()
-#     boardgames = BoardGame.objects.all()
+def list_medias_member(request):
+    books = Book.objects.all()
+    dvds = Dvd.objects.all()
+    cds = Cd.objects.all()
+    boardgames = BoardGame.objects.all()
 
-#     return render(request, "member/list_medias.html", {
-#         'books': books,
-#         'dvds': dvds,
-#         'cds' : cds,
-#         'boardgames' : boardgames
-#         })
+    return render(request, "bibliothecaire/list_medias_member.html", {
+        'books': books,
+        'dvds': dvds,
+        'cds' : cds,
+        'boardgames' : boardgames
+        })
 
 
 # CREATION D'UN NOUVEAU LIVRE
