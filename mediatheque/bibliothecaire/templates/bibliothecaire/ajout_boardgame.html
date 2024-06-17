@@ -10,14 +10,14 @@
 </head>
 
 <body class="m-5">
-    <h2 class="m-3">Ajouter un Livre</h2>
+    <h2 class="m-3">Ajouter un Jeu de Plateau</h2>
 
     <ul class="nav nav-tabs m-3">
         <li class="nav-item">
             <a class="nav-link active bg-info" href="{% url 'listmediasbibliothecaire' %}">Liste Medias</a>
         </li> 
     </ul>
-
+    
     <div class="m-3">
         <form class="form-control" action="" method="post" novalidate >
             {% csrf_token %}

@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class MembreConfig(AppConfig):
+class MemberConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'membre'
+    name = 'member'

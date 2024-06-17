@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--BOOTSTRAP CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Louer un Medias</title>
+</head>
+
+<body class="m-5">
+    <h1 class="m-3">App_Bibliothecaire</h1>
+    <h2 class="m-3">Louer un Medias</h2>
+
+    <ul class="nav nav-tabs m-3">
+        <li class="nav-item">
+            <a class="nav-link active bg-info" href="{% url 'home' %}">Accueil</a>
+        </li> 
+    </ul>
+
+    <h3 class="m-3">Livres</h3>
+
+    <ol class="list-group list-group-numbered">
+        {% for book in books %}
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Titre : {{ book.title }}</div>
+                Auteur : {{ book.author }}
+            </div>
+            {% if book.available %}
+            <span class="badge text-bg-primary rounded-pill">Disponible à la location</span>
+            {% else %}
+            <span class="badge text-bg-primary rounded-pill">Réserver</span>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ol>
+
+    <h3 class="m-3">Dvd</h3>
+
+    <ol class="list-group list-group-numbered">
+        {% for dvd in dvds %}
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Titre : {{ dvd.title }}</div>
+                Réalisateur : {{ dvd.realizator }}
+            </div>
+            {% if dvd.available %}
+            <span class="badge text-bg-primary rounded-pill">Disponible à la location</span>
+            {% else %}
+            <span class="badge text-bg-primary rounded-pill">Réserver</span>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ol>
+
+    <h3 class="m-3">Cd</h3>
+
+    <ol class="list-group list-group-numbered">
+        {% for cd in cds %}
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Titre : {{ cd.title }}</div>
+                Artiste : {{ cd.artist }}
+            </div>
+            {% if cd.available %}
+            <span class="badge text-bg-primary rounded-pill">Disponible à la location</span>
+            {% else %}
+            <span class="badge text-bg-primary rounded-pill">Réserver</span>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ol>
+
+    <h3 class="m-3">Jeux de plateau</h3>
+
+    <ol class="list-group list-group-numbered">
+        {% for boardgame in boardgames %}
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+                <div class="fw-bold">Titre : {{ boardgame.name }}</div>
+                Créateur : {{ boardgame.creator }}
+            </div>
+            {% if boardgame.sur_place %}
+            <span class="badge text-bg-primary rounded-pill">Disponibe sur place</span>
+            {% else %}
+            <span class="badge text-bg-primary rounded-pill">Non disponible</span>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ol>
+
+    <!--BOOTSTRAP JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

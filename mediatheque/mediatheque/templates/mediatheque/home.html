@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--BOOTSTRAP CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Projet Médiatheque</title>
+</head>
+
+<body class="m-5">
+    <h1>Projet_Médiathèque</h1>
+    <h2>Gestion du projet médiathèque</h2>
+    <p>La médiathèque propose à la consultation et à l’emprunt des livres, des Cds, des jeux de
+        plateaux et des dvd.
+        Tous ces supports sont ouverts à la consultation et à l’emprunt, sauf les jeux de plateau qui
+        sont uniquement disponibles en consultation.
+    </p>
+    <p><strong>L’application bibliothécaire permettre:</strong></p>
+    <ol>
+        <li>Afficher la liste des médias.</li>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">http: //127.0.0.1:8000</li>
+            <li class="breadcrumb-item active"><a href="{% url 'listmediasbibliothecaire' %}">listmediasbibliothecaire</a></li>
+        </ol>
+        <li>Ajouter un media.</li>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">http: //127.0.0.1:8000</li>
+            <li class="breadcrumb-item">bibliothecaire</li>
+            <li class="breadcrumb-item active">
+                <a href="{% url 'ajoutbook' %}">ajoutbook /</a>
+                <a href="{% url 'ajoutdvd' %}">ajoutdvd /</a>
+                <a href="{% url 'ajoutcd' %}">ajoutcd /</a>
+                <a href="{% url 'ajoutboardgame' %}">ajoutboardgame</a>
+            </li>
+        </ol>
+        <li>Afficher la liste des membres-emprunteur.</li>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">http: //127.0.0.1:8000</li>
+            <li class="breadcrumb-item active"><a href="{% url 'listmembers' %}">listmembers</a></li>
+        </ol>
+        <li>Créer un membre-emprunteur.</li>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">http: //127.0.0.1:8000</li>
+            <li class="breadcrumb-item active"><a href="{% url 'ajoutmember' %}">ajoutmember</a></li>
+        </ol>
+
+        <li>Mettre à jour un membre.</li>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">http: //127.0.0.1:8000</li>
+            <li class="breadcrumb-item active"><a href="{% url 'listmembers' %}">listmembers</a></li>
+            <li class="breadcrumb-item">Redirection en fonction de "ID" selectionné</li>
+        </ol>
+
+        <li>Supprimer un membre.</li>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">http: //127.0.0.1:8000</li>
+            <li class="breadcrumb-item active"><a href="{% url 'listmembers' %}">listmembers</a></li>
+            <li class="breadcrumb-item">Suppression en fonction de "ID" selectionné</li>
+        </ol>
+
+        <li>Créer un emprunt pour un média disponible.</li>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">http: //127.0.0.1:8000</li>
+            <li class="breadcrumb-item">bibliothecaire</li>
+            <li class="breadcrumb-item active"><a href="{% url 'rentedmedia' %}">rentedmedia</a></li>
+        </ol>
+        <!-- <li>Rentrer un emprunt.</li> -->
+    </ol>
+
+    <p><strong>L’application membre affiche:</strong></p>
+    <ol>
+        <li>la liste de tous les médias.</li>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">http: //127.0.0.1:8000</li>
+            <li class="breadcrumb-item">bibliothecaire</li>
+            <li class="breadcrumb-item active"><a href="{% url 'listmediasmember' %}">listmediasmember</a></li>
+        </ol>
+    </ol>
+    <!--BOOTSTRAP JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> 
+</body>
+</html>
