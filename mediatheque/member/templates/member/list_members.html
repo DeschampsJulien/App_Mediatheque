@@ -23,7 +23,9 @@
 
     <ul class="list-group m-3">
         {% for member in members %}
-        <li class="list-group-item"> Prénom : {{ member.first_name }} || Nom : {{ member.last_name }} || Email : {{ member.email }}
+        <li class="list-group-item"><strong> Prénom :</strong> {{ member.first_name }} ||<strong> Nom :</strong> {{ member.last_name }} ||<strong> Email :</strong> {{ member.email }}
+        <a class="btn btn-outline-dark btn-sm mx-3" href="{% url 'updatemember' member.id %}">Modifier</a>
+        <a class="btn btn-outline-dark btn-sm mx-3" href="{% url 'deletemember' member.id %}">Supprimer</a>
         {% endfor %}
     </ul>
 

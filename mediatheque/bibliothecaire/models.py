@@ -32,7 +32,7 @@ class Cd(Media):
 class BoardGame(models.Model):
     name = models.CharField('Nom', max_length=200)
     creator = models.CharField('Créateur', max_length=150)
-    available = models.BooleanField('Disponible', default=True)
+    sur_place = models.BooleanField('Disponible', default=True)
     
     def __str__(self):
         return self.name

@@ -1,5 +1,5 @@
 from django import forms
-from bibliothecaire.models import Book, Dvd, Cd, BoardGame 
+from bibliothecaire.models import Book, Dvd, Cd, BoardGame, Media 
 
 
 class BookForm(forms.ModelForm):
@@ -30,6 +30,10 @@ class BoardGameForm(forms.ModelForm):
         fields = '__all__'
 
 
-# class BoardGameForm(forms.Form):
-#     name = forms.CharField(required=False)
-#     creator = forms.CharField(required=False)
+
+class RentedMedia(forms.ModelForm):
+
+    class Meta:
+        model = Media
+        fields = '__all__'
+    

@@ -26,7 +26,7 @@ def ajout_member(request):
     else:
         ajoutmember = Ajoutmember()
         return render(request,'member/ajout_member.html',
-                    {'ajoutmembre': ajoutmember})
+                    {'ajoutmember': ajoutmember})
     
 
 # MISE A JOUR D'UN MEMBRE   
@@ -46,6 +46,14 @@ def update_member(request, id):
         updatemember = Updatemember()
         return render(request,'member/update_member.html',
                     {'updatemember': updatemember})
+    
+# SUPPRIMER UN MEMBRE
+def delete_member(request, id):
+    member = Member.objects.get(pk=id)
+    member.delete()
+    members = Member.objects.all()
+    return render(request, 'member/list_members.html',
+                  {'members': members})
 
         
 

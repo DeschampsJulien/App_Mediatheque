@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from bibliothecaire.models import Book, Dvd, Cd, BoardGame
-from bibliothecaire.forms import BookForm, DvdForm, CdForm, BoardGameForm
+from bibliothecaire.models import Book, Dvd, Cd, BoardGame, Media
+from bibliothecaire.forms import BookForm, DvdForm, CdForm, BoardGameForm, RentedMedia
 
 
 # AFFICHAGE DE LA LISTE DES MEDIAS APP_BIBLIOTHECAIRE
@@ -80,11 +80,34 @@ def ajout_boardgame(request):
     else:
         form = BoardGameForm()
     
-    return render(request,"bibliothecaire/ajout_boardgame.html", {'form': form} )
+    return render(request,"bibliothecaire/ajout_boardgame.html", {'form': form})
 
+# LOUER UN MEDIA
+def rented_media(request):
+    books = Book.objects.all()
+    dvds = Dvd.objects.all()
+    cds = Cd.objects.all()
+    boardgames = BoardGame.objects.all()
 
-
-
-
-
-
+    return render(request, "bibliothecaire/rented_media.html", {
+        'books': books,
+        'dvds': dvds,
+        'cds' : cds,
+        'boardgames' : boardgames
+        })
+    
+# def rented_media(request, id):
+#     if request.method == 'POST':
+#         media = Media.objects.get(pk=id)
+#         rentedmedia = RentedMedia(request.POST)
+#         if rentedmedia.is_valid():
+#             media.title = rentedmedia.cleaned_data['title']
+#             media.available = rentedmedia.cleaned_data['available']
+#             media.save()
+#             medias = Media.objects.all()
+#             return render(request,'bibliothecaire/list_medias_member.html',
+#                         {'medias': medias})
+#     else:
+#         rentedmedia = RentedMedia()
+#         return render(request,'bibliothecaire/rented_media.html',
+#                     {'rentedmedia': rentedmedia})

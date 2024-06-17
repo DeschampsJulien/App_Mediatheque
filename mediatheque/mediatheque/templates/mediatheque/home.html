@@ -22,7 +22,7 @@
         <li>Afficher la liste des médias.</li>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">http: //127.0.0.1:8000</li>
-            <li class="breadcrumb-item active"><a href="{% url 'listmediasbibliothecaire' %}">bibliothecaire</a></li>
+            <li class="breadcrumb-item active"><a href="{% url 'listmediasbibliothecaire' %}">listmediasbibliothecaire</a></li>
         </ol>
         <li>Ajouter un media.</li>
         <ol class="breadcrumb">
@@ -38,7 +38,7 @@
         <li>Afficher la liste des membres-emprunteur.</li>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">http: //127.0.0.1:8000</li>
-            <li class="breadcrumb-item active"><a href="{% url 'listmembers' %}">member</a></li>
+            <li class="breadcrumb-item active"><a href="{% url 'listmembers' %}">listmembers</a></li>
         </ol>
         <li>Créer un membre-emprunteur.</li>
         <ol class="breadcrumb">
@@ -47,10 +47,26 @@
         </ol>
 
         <li>Mettre à jour un membre.</li>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">http: //127.0.0.1:8000</li>
+            <li class="breadcrumb-item active"><a href="{% url 'listmembers' %}">listmembers</a></li>
+            <li class="breadcrumb-item">Redirection en fonction de "ID" selectionné</li>
+        </ol>
+
+        <li>Supprimer un membre.</li>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">http: //127.0.0.1:8000</li>
+            <li class="breadcrumb-item active"><a href="{% url 'listmembers' %}">listmembers</a></li>
+            <li class="breadcrumb-item">Suppression en fonction de "ID" selectionné</li>
+        </ol>
 
         <li>Créer un emprunt pour un média disponible.</li>
-
-        <li>Rentrer un emprunt.</li>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">http: //127.0.0.1:8000</li>
+            <li class="breadcrumb-item">bibliothecaire</li>
+            <li class="breadcrumb-item active"><a href="{% url 'rentedmedia' %}">rentedmedia</a></li>
+        </ol>
+        <!-- <li>Rentrer un emprunt.</li> -->
     </ol>
 
     <p><strong>L’application membre affiche:</strong></p>
@@ -58,7 +74,8 @@
         <li>la liste de tous les médias.</li>
         <ol class="breadcrumb">
             <li class="breadcrumb-item">http: //127.0.0.1:8000</li>
-            <li class="breadcrumb-item active"><a href="{% url 'listmediasmember' %}">member</a></li>
+            <li class="breadcrumb-item">bibliothecaire</li>
+            <li class="breadcrumb-item active"><a href="{% url 'listmediasmember' %}">listmediasmember</a></li>
         </ol>
     </ol>
     <!--BOOTSTRAP JS-->

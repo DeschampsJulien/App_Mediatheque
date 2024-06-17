@@ -8,5 +8,6 @@ urlpatterns = [
     path('ajoutdvd/', views.ajout_dvd, name="ajoutdvd"),
     path('ajoutcd/', views.ajout_cd, name="ajoutcd"),
     path('ajoutboardgame/', views.ajout_boardgame, name="ajoutboardgame"),
-    path('member/', views.list_medias_member, name="listmediasmember"),
+    path('listmediamember/', views.list_medias_member, name="listmediasmember"),
+    path('rentedmedia/', views.rented_media, name="rentedmedia"),
 ]
